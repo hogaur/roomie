@@ -1,0 +1,36 @@
+{:ziggurat {:app-name             "roomie"
+            :env                  [:dev :keyword]
+            :nrepl-server         {:port [7011 :int]}
+            :stream-router        {:booking {:application-id       "roomie"
+                                             :bootstrap-servers    "localhost:6667"
+                                             :stream-threads-count [1 :int]
+                                             :origin-topic         ".*-booking-log" }}
+            :statsd               {:host    "localhost"
+                                   :port    [8125 :int]
+                                   :enabled [false :bool]}
+            :sentry               {:enabled                   [false :bool]
+                                   :dsn                       "dummy"
+                                   :worker-count              [5 :int]
+                                   :queue-size                [5 :int]
+                                   :thread-termination-wait-s [1 :int]}
+            :messaging            {:constructor "ziggurat.messaging.rabbitmq-cluster-wrapper/->RabbitMQMessaging"}
+            :rabbit-mq-connection {:hosts            "localhost1,localhost2"
+                                   :port            [5672 :int]
+                                   :prefetch-count  [3 :int]
+                                   :username        "gojek"
+                                   :password        "password"
+                                   :channel-timeout [2000 :int]}
+            :rabbit-mq            {:delay       {:queue-name           "roomie_delay_queue"
+                                                 :exchange-name        "roomie_delay_exchange"
+                                                 :dead-letter-exchange "roomie_instant_exchange"
+                                                 :queue-timeout-ms     [5000 :int]}
+                                   :instant     {:queue-name    "roomie_instant_queue"
+                                                 :exchange-name "roomie_instant_exchange"}
+                                   :dead-letter {:queue-name    "roomie_dead_letter_queue"
+                                                 :exchange-name "roomie_dead_letter_exchange"}}
+            :retry                {:count   [5 :int]
+                                   :enabled [true :bool]}
+            :jobs                 {:instant {:worker-count   [4 :int]
+                                             :prefetch-count [4 :int]}}
+            :http-server          {:port         [8010 :int]
+                                   :thread-count [100 :int]}}}
