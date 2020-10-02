@@ -27,4 +27,3 @@
 
 (defn -main [& args]
    (init/main {:start-fn start :stop-fn stop :modes [:api-server]}))
-;  (init/main start stop {:booking {:handler-fn handler-fn}} {} {}))

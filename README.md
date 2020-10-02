@@ -1,7 +1,6 @@
-#Roomie
+# Roomie
 
-I am the best roomie ever.
-I help people when they come visit my room.
+I am welcoming in nature and help people when they visit.
 
 ## How to start
 - Package the app using `lein uberjar`. This shall put a file called
