@@ -11,8 +11,7 @@
                  [org.apache.logging.log4j/log4j-core "2.7"]
                  [org.apache.logging.log4j/log4j-slf4j-impl "2.7"]
                  [org.clojure/clojure "1.9.0"]]
-  :repositories {"Go-jek"     "http://artifactory-gojek.golabs.io/artifactory/gojek-release-local",
-                 "Gojek-Libs" "http://artifactory-gojek.golabs.io/artifactory/libs-release-local"}
+  :repositories {}
   :java-source-paths ["src"]
   :jvm-opts ["-server" "-XX:-OmitStackTraceInFastThrow"]
   :main ^:skip-aot roomie.main
