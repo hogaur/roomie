@@ -28,13 +28,14 @@ In case of questions, you can reach out to me at https://twitter.com/hogaur
 
 ## APIs
 
-### GET '/v1/roomie?wiki=<wiki>&keyword=<keyword>'
+### GET '/v1/roomie?wiki=`<wiki>`&keyword=`<keyword>`'
 200 OK
-{"link": <link>}
+{"link": `<link>`}
 
 ### POST 'v1/events?challenge=some%20challenging%20parameter'
----
 200 OK
 {"some challenging parameter"}
+
+---
 
 To contribute, please read and follow this [How to Github](https://www.gun.io/blog/how-to-github-fork-branch-and-pull-request) blog post.
